@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10130f">
+  <meta name="description" content="Spawnza — South Africa's marketplace for gaming gear and electronics.">
+  <title>Spawnza | Your gear. Your game.</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #10130f;
+      --panel: #191e18;
+      --green: #b7ff45;
+      --muted: #a4afa0;
+      --border: #30382e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #f5f7f2;
+      font-family: system-ui, sans-serif;
+    }
+    header {
+      padding: 20px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 27px; font-weight: 900; letter-spacing: -1px; }
+    .logo span { color: var(--green); }
+    a { color: inherit; text-decoration: none; }
+    .sell, button {
+      border: 0;
+      background: var(--green);
+      color: #14180f;
+      padding: 12px 17px;
+      border-radius: 9px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    main { max-width: 1120px; margin: auto; padding: 38px 6%; }
+    .hero {
+      padding: 35px 0 30px;
+      max-width: 720px;
+    }
+    .eyebrow { color: var(--green); font-weight: 800; }
+    h1 { font-size: clamp(38px, 8vw, 66px); line-height: 1.02; margin: 15px 0; }
+    h1 span { color: var(--green); }
+    p { color: var(--muted); line-height: 1.6; }
+    .search { display: flex; gap: 9px; margin: 25px 0; }
+    input, select, textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 13px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: white;
+      font: inherit;
+    }
+    .search input { flex: 1; }
+    h2 { margin-top: 35px; }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .category, .product {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 17px;
+    }
+    .category { cursor: pointer; }
+    .category:hover { border-color: var(--green); }
+    .emoji { font-size: 27px; }
+    .category p { font-size: 13px; margin-bottom: 0; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+    }
+    .product .price { color: var(--green); font-size: 21px; font-weight: 900; }
+    .product h3 { margin-bottom: 6px; }
+    .product p { font-size: 13px; }
+    .tag { color: var(--green); font-size: 12px; font-weight: 800; }
+    .note { border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 30px; }
+    footer { text-align: center; padding: 30px 6%; border-top: 1px solid var(--border); color: var(--muted); }
+    .hidden { display: none !important; }
+    @media (max-width: 600px) {
+      .categories { grid-template-columns: repeat(2, 1fr); }
+      .products { grid-template-columns: repeat(2, 1fr); }
+      .search { flex-wrap: wrap; }
+      .search button { width: 100%; }
+      header { padding: 17px 5%; }
+      main { padding: 25px 5%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#">SPAWN<span>ZA</span></a>
+    <a class="sell" href="#sell">+ Sell an item</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">SOUTH AFRICA'S GAMING & TECH MARKETPLACE</div>
+      <h1>Your gear.<br><span>Your game.</span></h1>
+      <p>Find your next upgrade. Buy and sell gaming gear, phones and electronics.</p>
+      <form class="search" id="searchForm">
+        <input id="searchInput" placeholder="Search phones, consoles, laptops..." aria-label="Search products">
+        <button type="submit">Search</button>
+      </form>
+    </section>
+
+    <h2>Browse categories</h2>
+    <section class="categories">
+      <div class="category" data-category="Consoles & Games"><div class="emoji">🎮</div><strong>Consoles & Games</strong><p>PlayStation, Xbox, Nintendo</p></div>
+      <div class="category" data-category="Phones"><div class="emoji">📱</div><strong>Phones</strong><p>Samsung, iPhone and more</p></div>
+      <div class="category" data-category="PC & Laptops"><div class="emoji">💻</div><strong>PC & Laptops</strong><p>Computers and components</p></div>
+      <div class="category" data-category="Controllers & Accessories"><div class="emoji">🕹️</div><strong>Accessories</strong><p>Controllers, headsets and more</p></div>
+      <div class="category" data-category="Games"><div class="emoji">👾</div><strong>Games</strong><p>Games and collectibles</p></div>
+      <div class="category" data-category="Other Electronics"><div class="emoji">⚡</div><strong>Other electronics</strong><p>More tech to discover</p></div>
+    </section>
+
+    <h2>Latest listings</h2>
+    <p id="listingNote">Sample listings — real seller listings will be added in a later step.</p>
+    <section class="products" id="products">
+      <article class="product" data-category="Consoles & Games">
+        <div class="emoji">🎮</div><div class="tag">DEMO LISTING</div>
+        <h3>PlayStation 5</h3><p>Example listing · Cape Town</p><div class="price">R7,000</div>
+      </article>
+      <article class="product" data-category="Phones">
+        <div class="emoji">📱</div><div class="tag">DEMO LISTING</div>
+        <h3>Samsung Galaxy</h3><p>Example listing · Johannesburg</p><div class="price">R4,500</div>
+      </article>
+      <article class="product" data-category="PC & Laptops">
+        <div class="emoji">💻</div><div class="tag">DEMO LISTING</div>
+        <h3>Gaming laptop</h3><p>Example listing · Durban</p><div class="price">R8,500</div>
+      </article>
+    </section>
+    <p id="noResults" class="hidden">No matching demo listings. Try another search.</p>
+
+    <section class="note" id="sell">
+      <h2>Want to sell your gear?</h2>
+      <p>This is the first homepage prototype. Seller accounts and real listing uploads are coming in the next development stages.</p>
+      <button id="sellButton">Get ready to sell</button>
+      <p id="sellMessage" class="hidden">Thanks for your interest! Seller registration will be added in a later stage.</p>
+    </section>
+
+    <section class="note">
+      <strong>Stay safe when buying</strong>
+      <p>Meet safely, inspect the item and verify the seller. Be careful with requests for upfront payments to strangers.</p>
+    </section>
+  </main>
+
+  <footer>© 2026 Spawnza · Your gear. Your game.</footer>
+
+  <script>
+    const input = document.getElementById('searchInput');
+    const products = [...document.querySelectorAll('.product')];
+    const noResults = document.getElementById('noResults');
+    let selectedCategory = '';
+
+    function filterProducts() {
+      const query = input.value.trim().toLowerCase();
+      let count = 0;
+      products.forEach(product => {
+        const matchesText = product.innerText.toLowerCase().includes(query);
+        const matchesCategory = !selectedCategory || product.dataset.category === selectedCategory;
+        const show = matchesText && matchesCategory;
+        product.classList.toggle('hidden', !show);
+        if (show) count++;
+      });
+      noResults.classList.toggle('hidden', count !== 0);
+    }
+
+    document.getElementById('searchForm').addEventListener('submit', event => {
+      event.preventDefault();
+      filterProducts();
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('.category').forEach(category => {
+      category.addEventListener('click', () => {
+        selectedCategory = selectedCategory === category.dataset.category ? '' : category.dataset.category;
+        filterProducts();
+        document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    document.getElementById('sellButton').addEventListener('click', () => {
+      document.getElementById('sellMessage').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
